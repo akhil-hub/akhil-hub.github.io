@@ -13,7 +13,7 @@ on:
       - main
       - master
     paths:
-      - '**/*.yml'
+      - '**/*.ym
       - '**/*.yaml'
   workflow_dispatch: # Allows manual triggering of the workflow
 
@@ -34,15 +34,3 @@ jobs:
 
       - name: Lint YAML files
         run: yamllint .
-
-      # Optional: Use a specific yamllint configuration file
-      # If you have a .yamllint config file in your repo root, yamllint will pick it up automatically.
-      # If you want to specify a different path:
-      # - name: Lint YAML files with custom config
-      #   run: yamllint -c path/to/your/.yamllint-config.yml .
-
-      # Optional: Fail only on errors, ignore warnings
-      # - name: Lint YAML files (errors only)
-      #   run: yamllint --strict .
-
-      # Optional: Use a pre-built GitHub Action for yamllint
