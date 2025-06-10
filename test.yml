@@ -1,0 +1,92 @@
+# This is a sample YAML file demonstrating common syntax.
+
+# --- Basic Key-Value Pairs (Scalars) ---
+name: Jane Doe
+age: 30
+isStudent: false
+hasPets: true
+height: 1.75 # Float
+temperature: 25 # Integer
+city: New York
+zip_code: "10001" # String, even if it looks like a number, due to quotes
+
+# --- Lists (Sequences) ---
+# A list of simple strings
+fruits:
+  - Apple
+  - Banana
+  - Cherry
+  - Date
+
+
+# A list of numbers
+lucky_numbers: [7, 13, 21, 42] # Inline list for brevity
+
+# A list of dictionaries (objects)
+students:
+  - id: 101
+    name: Alice Smith
+    major: Computer Science
+    gpa: 3.8
+  - id: 102
+    name: Bob Johnson
+    major: Electrical Engineering
+    gpa: 3.5
+  - id: 103
+    name: Charlie Brown
+    major: History
+    gpa: 3.2
+
+# --- Dictionaries (Mappings / Objects) ---
+# A simple dictionary
+person_details:
+  first_name: John
+  last_name: Doe
+  occupation: Developer
+  email: john.doe@example.com
+
+# Nested dictionaries
+company:
+  name: Tech Solutions Inc.
+  location:
+    street: 123 Tech Lane
+    city: San Francisco
+    state: CA
+    zip: "94105"
+  employees: 500
+
+# --- Multiline Strings (Block Scalars) ---
+# Folded style: Newlines are folded into spaces unless indented more.
+description_folded: >
+  This is a long description that
+  spans multiple lines.
+  Newlines will be replaced by spaces.
+
+# Literal style: Newlines are preserved.
+description_literal: |
+  This description preserves
+  all line breaks
+  exactly as they are written.
+
+# Keeping trailing newlines (for literal style)
+multiline_text: |-
+  Line one.
+  Line two.
+  Line three.
+
+# --- Anchors and Aliases (for Reusability) ---
+# Define an anchor for a reusable block of data
+common_address: &my_address
+  street: 456 Main St
+  city: Anytown
+  state: TX
+  zip: "75001"
+
+# Use the anchor (alias) to reference the common address
+office_location: *my_address
+
+# You can also override specific values when using an alias
+warehouse_location:
+  <<: *my_address # Merge the anchored content here
+  street: 789 Industrial Way
+  # city, state, zip will be from common_address
